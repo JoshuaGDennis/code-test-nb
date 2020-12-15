@@ -1,6 +1,5 @@
 import STUB from '../STUB.json'
 import React, { useState } from 'react'
-import Ingredient from '../components/Ingredient'
 import { Link, useParams } from 'react-router-dom'
 
 const ProductPage = () => {
@@ -11,7 +10,7 @@ const ProductPage = () => {
     const buildItem = ({ id, type }) => (
         <p 
             key={id} 
-            className={`inline-block p-2 rounded shadow-sm hover:shadow transition-all m-2 px-4 cursor-pointer border-2 type-${type} ${type === selected ? 'active' : ''}`}
+            className={`inline-block p-2 rounded shadow-sm hover:shadow transition-all m-2 px-4 cursor-pointer border-2 type-${type.toLowerCase()}`}
         >
             {type}
         </p>
@@ -20,11 +19,11 @@ const ProductPage = () => {
     return (
         <div className="container p-2 m-auto mt-5">
             <Link to="/">Back to products</Link>
-            <div className="flex mt-5">
+            <div className="flex mt-5 flex-col lg:flex-row">
 
-                <img className="w-1/2 rounded" src={item.image_url} alt={`${item.name} donut`} />
+                <img className="w-full md:w-1/2 rounded mb-5 mx-auto" src={item.image_url} alt={`${item.name} donut`} />
                 
-                <div className="ml-5 w-full">
+                <div className="lg:ml-5 m-0 w-full ">
                     <div className="bg-white p-5 rounded shadow">
                         <h1>{item.name} donut</h1>
                         <p className="mt-5 tracking-wider font-bold">BATTERS</p>
@@ -38,10 +37,6 @@ const ProductPage = () => {
                         <div className="pl-5">
                             {item.topping.map(buildItem)}
                         </div>
-                    </div>
-
-                    <div className="bg-white mt-5 p-5 rounded shadow flex justify-between">
-                        <p className="font-bold">Price: £{value}</p>
                     </div>
                 </div>
                 

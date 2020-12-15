@@ -1,6 +1,9 @@
+@import "variables";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 
 @layer base {
   h1 {
@@ -16,52 +19,14 @@ body {
   background-color: #edeef0;
 }
 
-.type-none {
-  border-color: #9ca3af;
-  color: #9ca3af;
+@each $topping, $color in $toppings {
+  .type-#{$topping} {
+    border-color: $color;
+    color: $color;
 
-  &.active {
-    background-color: #9ca3af;
-    color: #fff;
-  }
-}
-
-.type-glazed {
-  border-color: #fde68a;
-  color: #fde68a;
-
-  &.active {
-    background-color: #fde68a;
-    color: #fff;
-  }
-}
-
-.type-sugar {
-  border-color: #ddd6fe;
-  color: #ddd6fe;
-
-  &.active {
-    background-color: #ddd6fe;
-    color: #fff;
-  }
-}
-
-.type-chocolate {
-  border-color: #78350f;
-  color: #78350f;
-
-  &.active {
-    background-color: #78350f;
-    color: #fff;
-  }
-}
-
-.type-maple {
-  border-color: #fbbf24;
-  color: #fbbf24;
-
-  &.active {
-    background-color: #fbbf24;
-    color: #fff;
+    &:hover, &.active {
+      background-color: $color;
+      color: #fff;
+    }
   }
 }

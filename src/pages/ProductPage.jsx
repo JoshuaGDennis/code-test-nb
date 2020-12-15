@@ -1,5 +1,7 @@
+import React from 'react'
 import STUB from '../STUB.json'
-import React, { useState } from 'react'
+import Image from '../components/Image'
+import Topping from '../components/Topping'
 import { Link, useParams, useHistory } from 'react-router-dom'
 
 const ProductPage = () => {
@@ -7,15 +9,6 @@ const ProductPage = () => {
     const history = useHistory()
 
     const item = STUB.find(item => item.id === +id)
-
-    const buildItem = ({ id, type }) => (
-        <p 
-            key={id} 
-            className={`inline-block p-2 rounded shadow-sm hover:shadow transition-all m-2 px-4 cursor-pointer border-2 type-${type.toLowerCase()}`}
-        >
-            {type}
-        </p>
-    )
 
     if (!item) return (
         <div className="container p-2 m-auto mt-5 text-center">
@@ -34,20 +27,23 @@ const ProductPage = () => {
         <div className="container p-2 m-auto mt-5">
             <Link to="/" className="text-blue-400 hover:text-blue-600 hover:underline transition-all">Back to products</Link>
             <div className="flex mt-5 flex-col lg:flex-row">
-                <img className="w-full md:w-1/2 rounded mb-5 mx-auto" src={item.image_url} alt={`${item.name} donut`} />
+                <Image
+                   className="w-full md:w-1/2 rounded mb-5 mx-auto"
+                   src={item.image_url} alt={`${item.name} donut`}
+                />
                 <div className="lg:ml-5 m-0 w-full ">
                     <div className="bg-white p-5 rounded shadow">
                         <h1>{item.name} donut</h1>
                         <p className="mt-5 tracking-wider font-bold">BATTERS</p>
 
                         <div className="pl-5">
-                            {item.batters.batter.map(buildItem)}
+                            {item.batters.batter.map(item => <Topping key={item.id} {...item} />)}
                         </div>
 
                         <p className="mt-5 tracking-wider font-bold">TOPPINGS</p>
 
                         <div className="pl-5">
-                            {item.topping.map(buildItem)}
+                            {item.topping.map(item => <Topping key={item.id} {...item} />)}
                         </div>
                     </div>
                 </div>

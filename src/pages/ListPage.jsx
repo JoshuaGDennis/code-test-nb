@@ -1,5 +1,6 @@
 import React from 'react'
 import STUB from '../STUB'
+import Image from '../components/Image'
 import { Link } from 'react-router-dom'
 
 const ListPage = () => (
@@ -12,16 +13,16 @@ const ListPage = () => (
                     key={item.id} 
                     to={`/product/${item.id}`}
                     className="bg-white rounded shadow flex items-center p-5 hover:shadow-lg transition-shadow my-3 max-w-lg m-auto"
-                >
-                    <img 
+                >   
+                    <Image
                         src={item.image_url} 
-                        className="w-32 rounded" 
+                        className="w-32 rounded h-20" 
                         alt={`${item.name} donut`}
                     />
                     
                     <div className="pl-5">
                         <p className="text-xl">{item.name} donut</p>
-                        <p>{item.ppu}p each</p>
+                        <p>£{item.ppu} a topping!</p>
                     </div>
                 </Link>
 

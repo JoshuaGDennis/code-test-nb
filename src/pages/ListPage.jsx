@@ -16,7 +16,7 @@ const ListPage = () => (
                 >   
                     <Image
                         src={item.image_url} 
-                        className="w-32 rounded h-20" 
+                        className="w-32 rounded h-28" 
                         alt={`${item.name} donut`}
                     />
                     

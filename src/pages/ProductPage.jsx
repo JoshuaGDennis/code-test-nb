@@ -28,20 +28,20 @@ const ProductPage = () => {
             <Link to="/" className="text-blue-400 hover:text-blue-600 hover:underline transition-all">Back to products</Link>
             <div className="flex mt-5 flex-col lg:flex-row">
                 <Image
-                   className="w-full md:w-1/2 rounded mb-5 mx-auto"
+                   className="w-full md:w-1/2 rounded mb-5 max-h-96 mx-auto flex-1"
                    src={item.image_url} alt={`${item.name} donut`}
                    style={{ minHeight: '10rem' }}
                 />
-                <div className="lg:ml-5 m-0 w-full ">
+                <div className="lg:ml-5 m-0 w-full flex-1">
                     <div className="bg-white p-5 rounded shadow">
                         <h1>{item.name} donut</h1>
-                        <p className="mt-5 tracking-wider font-bold">BATTERS</p>
+                        <p className="mt-5 tracking-wider font-bold text-gray-400">BATTERS</p>
 
                         <div className="pl-5">
                             {item.batters.batter.map(item => <Topping key={item.id} {...item} />)}
                         </div>
 
-                        <p className="mt-5 tracking-wider font-bold">TOPPINGS</p>
+                        <p className="mt-5 tracking-wider font-bold text-gray-400">TOPPINGS</p>
 
                         <div className="pl-5">
                             {item.topping.map(item => <Topping key={item.id} {...item} />)}

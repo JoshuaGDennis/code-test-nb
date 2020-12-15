@@ -3,7 +3,7 @@
 		"id": 1,
 		"type": "donut",
 		"name": "Cake",
-		"image_url": "https://cdn.pixabay.com/photo/2014/11/10/00/53/donut-524558_1280.jpg",
+		"image_url": "https://i.imgur.com/HO7vJhy.jpeg",
 		"ppu": 0.55,
 		"batters": {
 			"batter": [
@@ -27,7 +27,7 @@
 		"id": 2,
 		"type": "donut",
 		"name": "Raised",
-		"image_url": "https://cdn.pixabay.com/photo/2018/06/02/11/35/donut-3448210_1280.jpg",
+		"image_url": "https://i.imgur.com/KgVTpD3.jpeg",
 		"ppu": 0.55,
 		"batters": {
 			"batter": [
@@ -46,7 +46,7 @@
 		"id": 3,
 		"type": "donut",
 		"name": "Old Fashioned",
-		"image_url": "https://cdn.pixabay.com/photo/2015/10/17/16/35/glazed-donut-992767_1280.jpg",
+		"image_url": "https://i.imgur.com/E2LMWdB.jpeg",
 		"ppu": 0.55,
 		"batters": {
 			"batter": [

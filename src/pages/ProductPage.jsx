@@ -8,27 +8,14 @@ const ProductPage = () => {
 
     const item = STUB.find(item => item.id === +id)
 
-    const [ value, setValue ] = useState(1)
-    const [ topping, setTopping ] = useState('none')
-    const [ batter, setBatter ] = useState('none')
-
-    const onToppingClick = (t) => {
-        if (topping !== t) {
-            setTopping(t)
-            setValue(v => t === 'none' ? (v - item.ppu) : (v + item.ppu))
-        }
-    }
-
-    const onBatterClick = (b) => {
-        if (batter !== b) {
-            setBatter(b)
-            setValue(v => b === 'none' ? (v - item.ppu) : (v + item.ppu))
-        }
-    }
-
-    const onPurchase = () => {
-        alert(`You bought a ${batter !== 'none' ? batter : ''} ${topping !== 'none' ? topping : ''} ${item.name} donut for £${value}!!`)
-    }
+    const buildItem = ({ id, type }) => (
+        <p 
+            key={id} 
+            className={`inline-block p-2 rounded shadow-sm hover:shadow transition-all m-2 px-4 cursor-pointer border-2 type-${type} ${type === selected ? 'active' : ''}`}
+        >
+            {type}
+        </p>
+    )
 
     return (
         <div className="container p-2 m-auto mt-5">
@@ -43,23 +30,18 @@ const ProductPage = () => {
                         <p className="mt-5 tracking-wider font-bold">BATTERS</p>
 
                         <div className="pl-5">
-                            {item.batters.batter.map(({ id, type }) => (
-                                <Ingredient key={id} name={type} onClick={onBatterClick} selected={batter} />
-                            ))}
+                            {item.batters.batter.map(buildItem)}
                         </div>
 
                         <p className="mt-5 tracking-wider font-bold">TOPPINGS</p>
 
                         <div className="pl-5">
-                            {item.topping.map(({ id, type }) => (
-                                <Ingredient key={id} name={type} onClick={onToppingClick} selected={topping} />
-                            ))}
+                            {item.topping.map(buildItem)}
                         </div>
                     </div>
 
                     <div className="bg-white mt-5 p-5 rounded shadow flex justify-between">
                         <p className="font-bold">Price: £{value}</p>
-                        <button className="bg-green-400 p-2 rounded shadow text-white hover:shadow-md transition-shadow" onClick={onPurchase}>Purchase</button>
                     </div>
                 </div>
                 

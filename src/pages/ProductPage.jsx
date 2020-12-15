@@ -11,8 +11,8 @@ const ProductPage = () => {
     const item = STUB.find(item => item.id === +id)
 
     if (!item) return (
-        <div className="container p-2 m-auto mt-5 text-center">
-            <h1 className="my-2">Woops!</h1>
+        <div className="container p-2 m-auto mt-20 text-center">
+            <h1 className="my-2 text-8xl mb-5">Woops!</h1>
             <p className="my-2">There's no donut here!</p>
             <button 
                 onClick={() => history.push('/')}

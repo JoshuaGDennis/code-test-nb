@@ -30,6 +30,7 @@ const ProductPage = () => {
                 <Image
                    className="w-full md:w-1/2 rounded mb-5 mx-auto"
                    src={item.image_url} alt={`${item.name} donut`}
+                   style={{ minHeight: '10rem' }}
                 />
                 <div className="lg:ml-5 m-0 w-full ">
                     <div className="bg-white p-5 rounded shadow">

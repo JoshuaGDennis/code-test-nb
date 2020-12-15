@@ -1,15 +1,15 @@
 import PropTypes from 'prop-types'
 import React, { useState } from 'react'
 
-const Image = ({ className, src, alt }) => {
+const Image = ({ className, src, alt, ...props }) => {
     const [ error, setError ] = useState(false)
 
     if (error) return (
-        <div className={`${className || ''} bg-gray-400`} />
+        <div {...props} className={`${className || ''} bg-gray-400`} />
     )
 
     return (
-        <img src={src} alt={alt} className={`${className || ''}`} onError={() => setError(true)} />
+        <img {...props} src={src} alt={alt} className={`${className || ''}`} onError={() => setError(true)} />
     )
 }
 
